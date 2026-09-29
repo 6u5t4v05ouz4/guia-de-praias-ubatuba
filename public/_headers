@@ -1,0 +1,41 @@
+# Cloudflare Pages — cabecalhos de resposta
+#
+# Documentacao: https://developers.cloudflare.com/pages/configuration/headers/
+# O Pages ja envia Access-Control-Allow-Origin, X-Content-Type-Options,
+# Referrer-Policy e Etag por conta propria. Aqui vao os que faltam.
+#
+# NOTA: nao existe _redirects neste projeto de proposito. O Cloudflare Pages
+# ja faz o fallback de SPA sozinho quando o projeto nao tem um 404.html no
+# root (comportamento documentado em /pages/configuration/serving-pages).
+# Uma regra "/* /index.html 200" seria ignorada pelo Pages com aviso de loop
+# infinito, porque ele normaliza /index.html para /.
+
+# ---------------------------------------------------------------- seguranca --
+# O app nao carrega script de terceiros e nao usa inline <script>. As fotos
+# podem vir como data: (upload local), blob: (preview) ou https: (Storage).
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; manifest-src 'self'; worker-src 'self' blob:; upgrade-insecure-requests
+
+# ------------------------------------------------------------------ cache --
+# O Vite gera nomes com hash de conteudo: quem pedir /assets/index-abc123.css
+# nunca vera aquele arquivo mudar de bytes. Cache longo e imutavel.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/icons/*
+  Cache-Control: public, max-age=604800
+
+# O Service Worker decide qual versao do app o usuario recebe. Cachear o sw.js
+# (ou os arquivos que ele importa) faz o usuario ficar preso numa versao antiga.
+/sw.js
+  Cache-Control: no-cache, must-revalidate
+/workbox-*.js
+  Cache-Control: no-cache, must-revalidate
+
+# O shell tem que refletir o deploy mais recente assim que ele chega.
+/index.html
+  Cache-Control: no-cache, must-revalidate

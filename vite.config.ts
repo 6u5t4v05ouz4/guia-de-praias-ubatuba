@@ -28,7 +28,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'icons/apple-touch-icon.png', 'offline.html'],
+      includeAssets: ['favicon.svg', 'icons/apple-touch-icon.png'],
       manifest: {
         name: 'Guia de Praias & Serviços Ubatuba',
         short_name: 'Praias Ubatuba',
@@ -54,10 +54,24 @@ export default defineConfig({
         ],
       },
       workbox: {
-        // App Shell: o HTML/JS/CSS é servido do cache primeiro para abrir instantâneo na praia.
-        navigateFallback: '/index.html',
+        /**
+         * ⚠️ Por que o shell é precacheado como `/` e não como `index.html`:
+         * o Cloudflare Pages responde **308** para qualquer caminho `.html`
+         * (`/index.html` → `/`, `/offline.html` → `/offline`). O Workbox aborta
+         * a instalação do Service Worker quando uma entrada do precache
+         * responde redirecionado (`bad-precaching-response`), então pedir
+         * `index.html` deixaria o app **sem offline** no Pages — algo que não
+         * aparece no `vite preview`, porque lá o arquivo é servido direto.
+         *
+         * Solução: excluir `.html` do glob e adicionar a raiz (`/`) como entrada
+         * manual, que o Pages devolve com 200. `revision: null` porque o `sw.js`
+         * é regenerado a cada deploy — não há o que revalidar dentro do mesmo
+         * ciclo de vida.
+         */
+        navigateFallback: '/',
         navigateFallbackDenylist: [/^\/api\//],
-        globPatterns: ['**/*.{js,css,html,svg,png,ico,webp,woff2}'],
+        additionalManifestEntries: [{ url: '/', revision: null }],
+        globPatterns: ['**/*.{js,css,svg,png,ico,webp,woff2}'],
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         // Limite generoso: catálogo + fotos de praias visitadas.
