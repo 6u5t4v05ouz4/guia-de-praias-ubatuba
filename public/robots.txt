@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# O guia e um PWA: o app shell e servido do Service Worker e cada praia tem
+# uma URL propria para indexacao (ver docs/BUSINESS_MODEL.md secao 3).
+Disallow: /admin
+
+Sitemap: https://guiadepraiasubatuba.com.br/sitemap.xml

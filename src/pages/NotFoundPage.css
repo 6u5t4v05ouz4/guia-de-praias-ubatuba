@@ -1,0 +1,6 @@
+.not-found {
+  min-height: 60dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

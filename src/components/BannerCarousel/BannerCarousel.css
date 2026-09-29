@@ -1,0 +1,82 @@
+.banner-carousel {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--ocean-700);
+}
+
+.banner-carousel__viewport {
+  position: relative;
+  aspect-ratio: 3 / 1;
+  min-height: 108px;
+  /* Em telas largas a faixa 3:1 ficaria gigante: limitamos a altura. */
+  max-height: 240px;
+}
+
+.banner-carousel__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.02);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+  pointer-events: none;
+}
+
+.banner-carousel__slide.is-active {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.banner-carousel__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-carousel__cta {
+  position: absolute;
+  left: var(--space-4);
+  bottom: var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  background: rgba(6, 40, 60, 0.5);
+  color: #fff;
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.banner-carousel__dots {
+  position: absolute;
+  right: var(--space-2);
+  bottom: var(--space-1);
+  display: flex;
+  gap: 0;
+}
+
+/* O alvo de toque é de 24px mesmo com o ponto visual de 6px. */
+.banner-carousel__dot {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+}
+
+.banner-carousel__dot::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  transition: background-color var(--duration-fast) linear;
+}
+
+.banner-carousel__dot.is-active::after {
+  background: #fff;
+}

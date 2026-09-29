@@ -1,0 +1,24 @@
+# Guia de Praias & Serviços Ubatuba
+
+> PWA offline-first com o catálogo de praias de Ubatuba (Capital do Surfe, SP),
+> instruções de acesso, balneabilidade da CETESB, parceiros locais com contato
+> direto por WhatsApp e informações úteis da cidade.
+
+## O que este site oferece
+
+- [Catálogo de praias](/praias): busca por nome, KM da BR-101 e região (Norte, Centro, Sul).
+- Filtros por perfil de viagem: família/mar calmo, surf, quiosques, trilha, acesso de carro, pet friendly.
+- [Página de cada praia](/praia/praia-de-itamambuca): como chegar, dicas locais, galeria colaborativa e parceiros que atuam ali.
+- [Serviços e onde ir](/servicos): quiosques, pousadas, passeios de escuna, escolas de surf, aluguel de caiaque e SUP.
+- [Meus Salvos](/salvos): favoritos guardados no dispositivo, disponíveis sem internet.
+- [Guia da cidade](/guia): taxa de preservação ambiental (TPA), linhas VerdeBus, telefones de emergência e marés.
+
+## Opcional
+
+- [Painel administrativo](/admin) — restrito a administradores do guia.
+
+## Notas importantes
+
+- Os dados de balneabilidade refletem a última atualização cadastrada no painel e devem ser conferidos na fonte oficial da CETESB.
+- Telefones e mensagens de WhatsApp dos parceiros são cadastrados pelo painel administrativo.
+- Todo o catálogo fica disponível offline após a primeira visita, por ser um Progressive Web App.

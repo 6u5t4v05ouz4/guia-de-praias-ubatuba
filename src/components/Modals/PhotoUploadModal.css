@@ -1,0 +1,53 @@
+.photo-drop {
+  display: block;
+  cursor: pointer;
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--bg-sunken);
+  overflow: hidden;
+  transition:
+    border-color var(--duration-fast) linear,
+    background-color var(--duration-fast) linear;
+}
+
+.photo-drop:hover {
+  border-color: var(--ocean-400);
+  background: var(--ocean-50);
+}
+
+.photo-drop__preview {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+}
+
+.photo-drop__empty {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  font-size: var(--text-sm);
+  overflow: hidden;
+}
+
+.photo-drop__hint {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.18;
+  filter: blur(1px);
+}
+
+.photo-drop__empty > *:not(.photo-drop__hint) {
+  position: relative;
+}
+
+.photo-drop__icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-1);
+}

@@ -1,0 +1,104 @@
+.quick-filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.quick-filters__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.quick-filters__scroll {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-block: 2px;
+  flex: 1;
+  scroll-padding-inline: var(--space-4);
+}
+
+.quick-filters__scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 38px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border-strong);
+  background: var(--bg-elevated);
+  color: var(--ink-700);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
+  transition:
+    background-color var(--duration-fast) linear,
+    border-color var(--duration-fast) linear,
+    color var(--duration-fast) linear,
+    transform var(--duration-fast) var(--ease-spring);
+}
+
+.chip--sm {
+  min-height: 34px;
+  font-size: var(--text-2xs);
+}
+
+.chip:active {
+  transform: scale(0.95);
+}
+
+.chip.is-active {
+  background: var(--ocean-600);
+  border-color: var(--ocean-600);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-brand);
+}
+
+.quick-filters__more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-shrink: 0;
+  min-height: 34px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border-strong);
+  background: var(--bg-elevated);
+  color: var(--ink-700);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+}
+
+.quick-filters__more.has-active {
+  border-color: var(--ocean-500);
+  color: var(--ocean-700);
+  background: var(--ocean-50);
+}
+
+.quick-filters__count {
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: var(--radius-full);
+  background: var(--ocean-600);
+  color: #fff;
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+}
+
+.quick-filters__result {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}

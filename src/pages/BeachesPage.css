@@ -1,0 +1,68 @@
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.search__icon {
+  position: absolute;
+  left: var(--space-4);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.search__input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 var(--space-10);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  font-size: var(--text-md);
+  box-shadow: var(--shadow-xs);
+  transition:
+    border-color var(--duration-fast) linear,
+    box-shadow var(--duration-fast) linear;
+}
+
+.search__input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search__input:focus {
+  outline: none;
+  border-color: var(--ocean-400);
+  box-shadow: 0 0 0 3px var(--ocean-100);
+}
+
+.search__clear {
+  position: absolute;
+  right: var(--space-3);
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--ink-100);
+  color: var(--ink-500);
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.notice {
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+}
+
+.notice--error {
+  background: var(--error-soft);
+  color: var(--danger-600);
+}
+
+.beaches-page__banner {
+  margin-top: var(--space-4);
+}

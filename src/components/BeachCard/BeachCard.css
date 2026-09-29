@@ -1,0 +1,118 @@
+.beach-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.beach-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (hover: none) {
+  .beach-card:hover {
+    transform: none;
+  }
+}
+
+/* Alvo de toque do card inteiro, abaixo dos outros botões. */
+.beach-card__hit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.beach-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ocean-300);
+}
+
+.beach-card__badges {
+  position: absolute;
+  left: var(--space-3);
+  top: var(--space-3);
+  z-index: 2;
+  display: flex;
+  gap: var(--space-1);
+}
+
+.beach-card__cetesb {
+  box-shadow: 0 2px 8px rgba(6, 40, 60, 0.28);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.beach-card__fav {
+  position: absolute;
+  right: var(--space-3);
+  top: var(--space-3);
+  z-index: 3;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.beach-card__fav.is-active {
+  animation: fav-pop var(--duration-base) var(--ease-spring);
+}
+
+@keyframes fav-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.28); }
+  100% { transform: scale(1); }
+}
+
+.beach-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+
+.beach-card__title {
+  font-size: var(--text-md);
+  max-width: calc(100% - 48px);
+}
+
+.beach-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  font-size: var(--text-2xs);
+}
+
+/* Grade responsiva: 1 coluna no celular, 2 no tablet, 3-4 no desktop. */
+.beach-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 620px) {
+  .beach-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .beach-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1320px) {
+  .beach-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

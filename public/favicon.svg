@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Guia de Praias Ubatuba">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fe3f7" />
+      <stop offset="0.5" stop-color="#1b8ec9" />
+      <stop offset="1" stop-color="#0b5c92" />
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd166" stop-opacity="0.85" />
+      <stop offset="0.45" stop-color="#ffd166" stop-opacity="0.28" />
+      <stop offset="1" stop-color="#ffd166" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#sky)" />
+  <circle cx="48" cy="14" r="15" fill="url(#sun)" />
+  <circle cx="48" cy="14" r="5.6" fill="#ffd166" />
+  <g transform="rotate(-35 26 30)">
+    <rect x="11" y="26" width="30" height="8" rx="4" fill="#ef6f53" />
+    <rect x="16" y="29" width="20" height="2" rx="1" fill="#fff4ec" />
+  </g>
+  <path d="M0 39c8-3 12 3 20 0s12-3 20 0 16 2 24-1v10H0z" fill="#0b5c92" />
+  <path d="M0 38.5c8-3 12 3 20 0s12-3 20 0 16 2 24-1" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+  <path d="M0 50c8-3 12 3 20 0s12-3 20 0 16 2 24-1v6c-8 3-16 1-24 0s-12-3-20 0-12-3-20 0z" fill="#0a4a78" />
+  <path d="M0 49.5c8-3 12 3 20 0s12-3 20 0 16 2 24-1" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" opacity="0.8" />
+  <path d="M0 58c8-3 12 3 20 0s12-3 20 0 16 2 24-1v7H0z" fill="#fff" opacity="0.92" />
+</svg>

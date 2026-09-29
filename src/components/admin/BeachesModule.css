@@ -1,0 +1,83 @@
+.beaches-form__media {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 720px) {
+  .beaches-form__media {
+    grid-template-columns: 220px 1fr;
+  }
+}
+
+.beaches-form__cover {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--ink-50);
+}
+
+.beaches-form__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.beaches-form__cover .spinner {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.5);
+  border-top-color: #fff;
+}
+
+.beaches-form__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.beaches-form__gallery-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-sunken);
+}
+
+.beaches-form__gallery-item img {
+  width: 76px;
+  height: 52px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: var(--radius-xs);
+  background: var(--ink-100);
+}
+
+.beaches-form__gallery-item .icon-btn {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  box-shadow: none;
+  border: 1px solid var(--border);
+  font-size: 1.1rem;
+}
+
+.input--sm {
+  min-height: 34px;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-2xs);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+}

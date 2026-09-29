@@ -1,0 +1,58 @@
+.cetesb {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid;
+}
+
+.cetesb--md {
+  padding: var(--space-3) var(--space-4);
+}
+
+.cetesb.is-own {
+  background: var(--success-soft);
+  border-color: rgba(31, 157, 107, 0.25);
+  color: #10543c;
+}
+
+.cetesb.is-bad {
+  background: var(--error-soft);
+  border-color: rgba(214, 69, 69, 0.25);
+  color: #7a1f1f;
+}
+
+.cetesb__mark {
+  flex-shrink: 0;
+}
+
+.cetesb--sm .cetesb__mark {
+  width: 24px;
+  height: 24px;
+}
+
+.cetesb--md .cetesb__mark {
+  width: 32px;
+  height: 32px;
+}
+
+.cetesb__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.cetesb__label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}
+
+.cetesb--sm .cetesb__label {
+  font-size: var(--text-2xs);
+}
+
+.cetesb__date {
+  font-size: var(--text-2xs);
+  opacity: 0.78;
+}

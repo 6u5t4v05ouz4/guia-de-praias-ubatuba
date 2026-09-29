@@ -1,0 +1,8 @@
+.notice--info {
+  margin-top: var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--ocean-50);
+  color: var(--ocean-700);
+  font-size: var(--text-sm);
+}
